@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %}
+	Add
+{% endblock %}
+
+{% block main %}
+	<form class="add-form" action="/add" method="post">
+		<h2>Add new TODO</h2>
+		{% if error=="empty" %}
+			<p class="error">Cannot be empty!</p>
+		{% endif %}
+		<div class="inputBox">
+			<input autofocus autocomplete="off" type="text" name="todo">
+			<label>Enter &nbsp here...</label>
+		</div>
+		<div class="choice">
+			<a href="/">
+				<button type="button" class="cancel" name="cancel">Cancel</button>
+			</a>
+			<button class="add" name="add">Add</button>
+		</div>
+	</form>
+{% endblock %}

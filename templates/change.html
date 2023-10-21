@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block title %}
+	Change Password
+{% endblock %}
+
+{% block main %}
+	<div class="contents">
+		<div>
+			<a href="/settings">
+				<button class="add-button">Go Back</button>
+			</a>
+		</div>
+		<h2>Change password for user : {{account}}</h2>
+
+		{% if error == "noPrevMatch" %}
+			<p class="error">Incorrect Current Password!</p>
+		{% elif error == "noNewMatch" %}
+			<p class="error">Confirmation Password not Matching!</p>
+		{% elif error == "success" %}
+			<p class="success">Password Changed!</p>
+		{% endif %}
+
+		<form action="/change" method="post">
+			<div class="change-contents">
+				<label>Enter current password: </label>
+				<input autocomplete="off" autofocus type="password" name="currentPassword" required>
+			</div>
+
+			<div class="change-contents">
+				<label>Enter new password: </label>
+				<input autofocus type="password" name="newPassword" required>
+			</div>
+
+			<div class="change-contents">
+				<label>Confirm new password: </label>
+				<input autofocus type="password" name="newPasswordConfirm" required>
+			</div>
+
+			<div class="choice change-choice">
+				<a href="/settings">
+					<button type="button" class="cancel" name="cancel">Cancel</button>
+				</a>
+				<button class="add" name="save">Save</button>
+			</div>
+		</form>
+	</div>
+{% endblock %}

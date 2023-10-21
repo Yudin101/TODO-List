@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block title %}
+	Home
+{% endblock %}
+
+{% block main %}
+	<div class="contents">
+		<div>
+			<a href="/add">
+				<button class="add-button">Add</button>
+			</a>
+		</div>
+		<ul>
+			{% if todoLen == 0 %}
+				<p>Seems like all your tasks are completed!</p>
+			{% else %}
+				{% for todo in todoList %}
+					<li>
+						<div class="list">{{todo.todos}}</div>
+						
+						<form action="/edit" method="post">
+							<input type="hidden" name="edit" value="{{todo.todos}}">
+							<button class="list-buttons edit"><i class="fa-solid fa-pen"></i></button>
+						</form>
+
+						<form action="/" method="post">
+							<input type="hidden" name="remove" value="{{todo.todos}}">
+							<button class="list-buttons delete"><i class="fa-solid fa-trash"></i></button>
+						</form>
+					</li>
+				{% endfor %}
+			{% endif %}
+		</ul>
+	</div>
+{% endblock %}

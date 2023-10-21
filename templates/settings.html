@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+	Settings
+{% endblock %}
+
+{% block main %}
+	<div class="contents">
+		<div>
+			<a href="/">
+				<button class="add-button">Go Back</button>
+			</a>
+		</div>
+		<h2>Settings for the user : {{account}}</h2>
+		<div>
+			<a href="/change">
+				<button class="change-pass">Change Password</button>
+			</a>
+		</div>
+		<div>
+			<a href="/delete">
+				<button class="delete-account">Delete Account</button>
+			</a>
+		</div>
+	</div>
+{% endblock %}

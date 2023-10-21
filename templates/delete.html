@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+	Delete Account
+{% endblock %}
+
+{% block main %}
+	<p class="error">Note: You CANNOT RECOVER your account!</p>
+	<div class="contents">
+		<h2>Confirm deleting user : {{account}}</h2>
+
+		{% if error == "noPrevMatch" %}
+			<p class="error">Incorrect Current Password!</p>
+		{% endif %}
+
+		<form action="/delete" method="post">
+			<div class="change-contents">
+				<label>Enter password: </label>
+				<input autocomplete="off" autofocus type="password" name="password" required>
+			</div>
+
+			<div class="choice change-choice">
+				<a href="/settings">
+					<button type="button" class="cancel" name="cancel">Cancel</button>
+				</a>
+				<button class="add" name="save">Delete</button>
+			</div>
+		</form>
+	</div>
+{% endblock %}

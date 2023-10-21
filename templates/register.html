@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block title %}
+	Register
+{% endblock %}
+
+{% block main %}
+	{% if error == "already" %}
+		<p class="error">Username already used!</p>
+	{% elif error == "noMatch" %}
+		<p class="error">Enter matching passwords!</p>
+	{% endif %}
+
+	<form class="login-register" action="/register" method="post">
+		<h2>New Account</h2>
+		<div class="inputBox">
+			<input autocomplete="off" autofocus type="text" name="username" required>
+			<label>USERNAME</label>
+		</div>
+
+		<div class="inputBox">
+			<input type="password" name="password" required>
+			<label>PASSWORD</label>
+		</div>
+
+		<div class="inputBox">
+			<input type="password" name="confirmPassword" required>
+			<label>CONFIRM &nbsp PASSWORD</label>
+		</div>
+
+		<div class="inputBox">
+			<input type="submit" name="submit" value="Create">
+		</div>
+
+		<p>Already have an account ? <a href="/login">Login</a></p>
+	</form>
+{% endblock %}

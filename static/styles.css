@@ -1,0 +1,480 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Poppins', sans-serif;
+}
+
+:root{
+	--clr: #0ab3ff;
+	--bgClr: #29313c;
+}
+
+main{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	background: linear-gradient(to bottom right, #1c2630, #041221);
+}
+
+.error{
+	background: var(--bgClr);
+	color: #e81c1c;
+	font-size: 1.25rem;
+	padding: 25px;
+	border-radius: 15px;
+	margin-bottom: 15px;
+}
+
+.login-register{
+	background: var(--bgClr);
+	padding: 60px 80px 60px;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	border-radius: 15px;
+}
+
+.login-register h2{
+	color: white;
+	font-weight: 500;
+	text-transform: uppercase;
+	font-size: 1.25rem;
+	letter-spacing: 0.1em;
+	margin-bottom: 50px;
+}
+
+.login-register p{
+	color: white;
+}
+
+a{
+	color: var(--clr);
+	font-weight: 500;
+	text-decoration: none;
+}
+
+.inputBox{
+	position: relative;
+	width: 300px;
+	margin-bottom: 40px;
+}
+
+.inputBox input{
+	position: relative;
+	width: 100%;
+	padding: 10px 0;
+	background: none;
+	border: none;
+	border-bottom: 2px solid #999;
+	outline: none;
+	color: white;
+	font-size: 1rem;
+	letter-spacing: 0.15em;
+}
+
+.inputBox label{
+	position: absolute;
+	left: 0;
+	padding: 10px 0;
+	pointer-events: none;
+	color: #999;
+}
+
+.inputBox label span{
+	position: relative;
+	display: inline-flex;
+	letter-spacing: 0.05em;
+	transition: 0.2s ease-in-out;
+}
+
+.inputBox input:focus ~ label span,
+.inputBox input:valid ~ label span{
+	color: var(--clr);
+	letter-spacing: 0.15em;
+	transform: translateY(-25px);
+}
+
+.inputBox input:focus,
+.inputBox input:valid{
+	border-bottom: 2px solid var(--clr);
+}
+
+.inputBox input[type="submit"]{
+	background: var(--clr);
+	border: none;
+	padding: 15px;
+	border-radius: 50px;
+	color: var(--bgClr);
+	font-weight: 600;
+	font-size: 1.15rem;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	cursor: pointer;
+	transition: 0.5s;
+}
+
+.inputBox input[type="submit"]:hover{
+	letter-spacing: 0.35em;
+	background: #029be8;
+}
+
+nav{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	background-color: var(--bgClr);
+	padding: 15px;
+	color: white;
+}
+
+nav button{
+	background: none;
+	font-size: 15px;
+	font-weight: 500;
+	padding: 7px 20px;
+	color: var(--clr);
+	border: 2px solid var(--clr);
+	transition: 0.2s;
+	cursor: pointer;
+}
+
+nav button:hover{
+	letter-spacing: 1px;
+	background-color: var(--clr);
+	color: var(--bgClr);
+	box-shadow: 0 0 30px 1px rgba(10, 179, 255, 1);
+}
+
+nav .logout{
+	color: red;
+	border-color: red;
+	margin-right: 15px;
+}
+
+nav .logout:hover{
+	background-color: red;
+	box-shadow: 0 0 30px 1px red;
+}
+
+nav p{
+	font-size: 20px;
+	font-weight: 400;
+}
+
+.index-title{
+	color: white;
+}
+
+nav .title-about{
+	display: flex;
+	align-items: baseline;
+}
+
+nav .about-link{
+	color: white;
+	font-size: 18px;
+	font-weight: 400;
+	margin-left: 30px;
+	transition: 0.1s;
+}
+
+nav .about-link:hover{
+	color: var(--clr);
+	text-decoration: underline;
+}
+
+.contents{
+	display: flex;
+	flex-direction: column;
+	width: 80%;
+	height: auto;
+	color: white;
+	padding: 30px;
+	border: 2px solid white;
+	border-radius: 15px;
+}
+
+.contents ul li{
+	display: flex;
+	align-items: center;
+	margin-bottom: 15px;
+}
+
+.add-button{
+	background: var(--clr);
+	border: none;
+	padding: 5px 35px;
+	color: var(--bgClr);
+	font-weight: 600;
+	font-size: 17px;
+	cursor: pointer;
+	border-radius: 5px;
+	margin-bottom: 20px;
+	transition: 0.2s;
+}
+
+.add-button:hover{
+	background: #029be8;
+}
+
+.list{
+	background-color: #35404f;
+	padding: 15px 25px;
+	width: 100%;
+	border-radius: 5px;
+}
+
+.list-buttons{
+	background: none;
+	padding: 10px;
+	font-size: 20px;
+	margin-left: 10px;
+	cursor: pointer;
+	border: 2px solid;
+	border-radius: 5px;
+	transition: 0.2s;
+}
+
+.list-buttons:hover i{
+	color: var(--bgClr);
+}
+
+.list-buttons i{
+	transition: 0.2s;
+}
+
+.delete{
+	border-color: red;
+}
+
+.delete:hover{
+	background-color: red;
+	box-shadow: 0 0 30px 1px red;
+}
+
+.delete i{
+	color: red;
+}
+
+.edit{
+	border-color: green;
+}
+
+.edit:hover{
+	background-color: green;
+	box-shadow: 0 0 30px 1px green;
+}
+
+.edit i{
+	color: green;
+}
+
+.add-form{
+	width: 90%;
+	color: white;
+	padding: 50px;
+	border-radius: 5px;
+	border: 2px solid white;
+	transition: 0.2s;
+}
+
+.add-form:hover{
+	border-color: var(--clr);
+}
+
+.add-form h2{
+	margin-bottom: 35px;
+}
+
+.add-form input{
+	width: 100%;
+	height: 50px;
+	background: none;
+	color: white;
+	border: none;
+	border-bottom: 2px solid white;
+	outline: none;
+}
+
+.add-form .inputBox{
+	width: 100%;
+	margin-bottom: 0px;
+}
+
+.add-form .error{
+	background: none;
+	padding: 0;
+	margin-top: -20px;
+	margin-bottom: 25px;
+	font-size: 17px;
+}
+
+.add-form .choice{
+	display: flex;
+	justify-content: right;
+	margin-top: 35px;
+	margin-bottom: -25px;
+}
+
+.choice button{
+	background: none;
+	padding: 5px;
+	width: 100px;
+	margin-right: 25px;
+	color: white;
+	font-size: 15px;
+	font-weight: 500;
+	border: 2px solid white;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: 0.2s;
+}
+
+.cancel:hover{
+	background-color: red;
+	border: 2px solid red;
+	color: var(--bgClr);
+	box-shadow: 0 0 30px 1px red;
+}
+
+.add:hover{
+	background-color: green;
+	border: 2px solid green;
+	color: var(--bgClr);
+	box-shadow: 0 0 30px 1px green;
+}
+
+.delete-account{
+	background: none;
+	font-size: 15px;
+	font-weight: 500;
+	padding: 7px 20px;
+	margin-top: 25px;
+	transition: 0.2s;
+	cursor: pointer;
+	color: red;
+	border: 2px solid red;
+	border-radius: 5px;
+}
+
+.delete-account:hover{
+	background-color: red;
+	color: var(--bgClr);
+	box-shadow: 0 0 30px 1px red;
+}
+
+.change-pass{
+	background: none;
+	font-size: 15px;
+	font-weight: 500;
+	padding: 7px 20px;
+	margin-top: 25px;
+	transition: 0.2s;
+	cursor: pointer;
+	color: green;
+	border: 2px solid green;
+	border-radius: 5px;
+}
+
+.change-pass:hover{
+	background-color: green;
+	color: var(--bgClr);
+	box-shadow: 0 0 30px 1px green;
+}
+
+.change-contents{
+	display: flex;
+	margin-top: 25px;
+}
+
+.change-contents label{
+	margin-right: 25px;
+}
+
+.change-contents input{
+	background: none;
+	color: var(--clr);
+	height: 25px;
+	border: none;
+	border-bottom: 2px solid white;
+	outline: none;
+	transition: 0.2s;
+}
+
+.change-contents input:focus,
+.change-contents input:valid{
+	border-color: var(--clr);
+}
+
+.change-choice{
+	display: flex;
+	justify-content: right;
+	margin-top: 25px;
+}
+
+.contents .error{
+	background: none;
+	padding: 0;
+	margin-top: 10px;
+	margin-bottom: 5px;
+	font-size: 17px;
+}
+
+.contents .success{
+	background: none;
+	padding: 0;
+	color: green;
+	font-size: 17px;
+	margin-top: 10px;
+	margin-bottom: 5px;
+}
+
+.error-page{
+	text-align: center;
+}
+
+.error-page h2{
+	font-size: 2rem;
+	margin-bottom: 20px;
+}
+
+.error-page a:hover{
+	text-decoration: underline;
+}
+
+.aboutH2{
+	margin-bottom: 20px;
+}
+
+.about-paragraph{
+	margin-bottom: 10px;
+}
+
+.green{
+	color: lightgreen;
+}
+
+.yellow{
+	color: yellow;
+}
+
+.red{
+	color: red;
+}
+
+.cadet-blue{
+	color: cadetblue;
+}
+
+.violet{
+	color: violet;
+}
+
+.me:hover{
+	text-decoration: underline;
+}
