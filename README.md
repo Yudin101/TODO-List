@@ -7,7 +7,7 @@ This is app that will help you keep your tasks organized. It gives you the abili
 #### Background:
 Being a procastinator myself, I usually forget the things that I am supposed to do and end up completely forgetting it or coming to know about it when it is already late. So I thought why not make a **TODO List** that will help me organize things a bit better and maybe also help me **remember** things.
 
-And that's how I came with the idea for my final project of CS50. So my app, **TODO List**, is an app that will help you make a list of things that you have to do and help you remember them.
+And that's how I came with the idea for this app. So my app, **TODO List**, is an app that will help you make a list of things that you have to do and help you remember them.
 
 ---
 #### Features:
