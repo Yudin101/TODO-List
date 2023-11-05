@@ -26,6 +26,7 @@ db.execute("CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREME
 db.execute("CREATE TABLE IF NOT EXISTS todoList (user_id INTEGER NOT NULL, todos TEXT NOT NULL, id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, dat TEXT, tim TEXT);")
 
 
+# Index Page
 @app.route("/", methods=["GET", "POST"])
 @login_required
 def index():
@@ -39,14 +40,12 @@ def index():
         
     else:
         todoList = db.execute("SELECT todos, dat, tim FROM todoList WHERE user_id = ?", session["user_id"])
-        # print(todoList)
-        # print(type(todoList))
         todoLen = len(todoList)
 
-        # time = db.execute("SELECT todo_id FROM todoList WHERE user_id = (SELECT)")
         return render_template("index.html", account=account, todoList=todoList, todoLen=todoLen)
 
 
+# Register Page
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
@@ -75,6 +74,7 @@ def register():
         return render_template("register.html")
 
 
+# Login Page
 @app.route("/login", methods=["GET", "POST"])
 def login():
 
@@ -103,6 +103,7 @@ def login():
         return render_template("login.html")
 
 
+# Logout
 @app.route("/logout")
 @login_required
 def logout():
@@ -111,6 +112,7 @@ def logout():
     return redirect("/")
 
 
+# Add Task Page
 @app.route("/add", methods=["GET", "POST"])
 @login_required
 def add():
@@ -131,6 +133,7 @@ def add():
         return render_template("add.html", account=account)
 
 
+# Edit Task Page
 @app.route("/edit", methods=["GET", "POST"])
 @login_required
 def edit():
@@ -151,6 +154,7 @@ def edit():
         return redirect("/")
 
 
+# Edited Task Gets Updated
 @app.route("/update", methods=["GET", "POST"])
 @login_required
 def update():
@@ -167,6 +171,7 @@ def update():
         return redirect("/")
 
 
+# Delete Tasks
 @app.route("/delete", methods=["GET", "POST"])
 @login_required
 def delete():
@@ -189,6 +194,7 @@ def delete():
         return render_template("delete.html")
 
 
+# Setting Page
 @app.route("/settings")
 @login_required
 def settings():
@@ -196,6 +202,7 @@ def settings():
     return render_template("settings.html", account=account)
 
 
+# Change Password
 @app.route("/change", methods=["GET", "POST"])
 @login_required
 def change():
@@ -220,6 +227,7 @@ def change():
     return render_template("change.html", account=account)
 
 
+# About Page
 @app.route("/about", methods=["GET"])
 @login_required
 def about():
@@ -227,7 +235,7 @@ def about():
 
     return render_template("about.html", account=account)
 
-
+# Handle 404 Error
 @app.errorhandler(404)
 def invalid_route(e):
     return render_template("404.html")
