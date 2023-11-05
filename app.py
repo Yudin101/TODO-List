@@ -13,15 +13,18 @@ app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
+# Checking if userData.db exists
 if os.path.exists("userData.db") == False:
     with open("userData.db", 'w'):
         pass
 
 db = SQL("sqlite:///userData.db")
 
+# Creating the tables
 db.execute("CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, username TEXT NOT NULL, hash TEXT NOT NULL);")
 
-db.execute("CREATE TABLE IF NOT EXISTS todoList (user_id INTEGER NOT NULL, todos TEXT NOT NULL)")
+db.execute("CREATE TABLE IF NOT EXISTS todoList (user_id INTEGER NOT NULL, todos TEXT NOT NULL, id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, dat TEXT, tim TEXT);")
+
 
 @app.route("/", methods=["GET", "POST"])
 @login_required
@@ -35,8 +38,12 @@ def index():
         return redirect("/")
         
     else:
-        todoList = db.execute("SELECT todos FROM todoList WHERE user_id = ?", session["user_id"])
+        todoList = db.execute("SELECT todos, dat, tim FROM todoList WHERE user_id = ?", session["user_id"])
+        # print(todoList)
+        # print(type(todoList))
         todoLen = len(todoList)
+
+        # time = db.execute("SELECT todo_id FROM todoList WHERE user_id = (SELECT)")
         return render_template("index.html", account=account, todoList=todoList, todoLen=todoLen)
 
 
@@ -111,11 +118,13 @@ def add():
 
     if request.method == "POST":
         todo = request.form.get("todo")
+        time = request.form.get("time")
+        date = request.form.get("date")
 
         if not todo:
             return render_template("add.html", error="empty")
 
-        db.execute("INSERT INTO todoList (user_id, todos) VALUES (?, ?)", session["user_id"], todo)
+        db.execute("INSERT INTO todoList (user_id, todos, dat, tim) VALUES (?, ?, ?, ?)", session["user_id"], todo, date, time)
 
         return redirect("/")
     else:
@@ -129,8 +138,14 @@ def edit():
 
     if request.method == "POST":
         global edit
+        global editTime
+        global editDate
+
         edit = request.form.get("edit")
-        return render_template("edit.html", edit=edit, account=account)
+        editTime = db.execute("SELECT tim FROM todoList WHERE todos=?", edit)[0]["tim"]
+        editDate = db.execute("SELECT dat FROM todoList WHERE todos=?", edit)[0]["dat"]
+
+        return render_template("edit.html", edit=edit, editTime=editTime, editDate=editDate, account=account)
 
     else:
         return redirect("/")
@@ -140,8 +155,12 @@ def edit():
 @login_required
 def update():
     if request.method == "POST":
-        edited = request.form.get("edited")
-        db.execute("UPDATE todoList SET todos=? WHERE todos=? AND user_id=?", edited, edit, session["user_id"])
+        editedTask = request.form.get("editedTask")
+        editedTime = request.form.get("editedTime")
+        editedDate = request.form.get("editedDate")
+
+        db.execute("UPDATE todoList SET todos=?, dat=?, tim=? WHERE todos=? AND user_id=?", editedTask, editedDate, editedTime, edit, session["user_id"])
+        
         return redirect("/")
 
     else:

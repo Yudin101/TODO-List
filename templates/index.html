@@ -18,8 +18,20 @@
 				{% for todo in todoList %}
 					<li>
 						<div class="list">
-							<span class="list-date">Deadline: 09:31, 2023-11-03</span><br>
-							{{todo.todos}}
+							{% if todo["tim"] == "" and todo["dat"] == "" %}
+								<span class="list-date"><strong>No Deadline</strong></span><br>
+
+							{% elif todo["tim"] != "" and todo["dat"] == "" %}
+								<span class="list-date"><strong>Deadline:</strong> {{ todo["tim"] }}</span><br>
+
+							{% elif todo["tim"] == "" and todo["dat"] != "" %}
+								<span class="list-date"><strong>Deadline:</strong> {{ todo["dat"] }}</span><br>
+
+							{% else %}
+								<span class="list-date"><strong>Deadline:</strong> {{ todo["tim"] }}, {{ todo["dat"] }}</span><br>
+							{% endif %}
+
+							{{ todo["todos"] }}
 						</div>
 						
 						<form action="/edit" method="post">

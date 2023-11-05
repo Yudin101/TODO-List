@@ -166,7 +166,7 @@ nav button{
 nav button:hover{
 	letter-spacing: 1px;
 	background-color: var(--clr);
-	color: var(--bgClr);
+	color: white;
 	box-shadow: 0 0 30px 1px rgba(10, 179, 255, 1);
 }
 
@@ -250,8 +250,8 @@ nav .about-link:hover{
 }
 
 .list-date{
-	font-size: 12px;
-	color: gray;
+	font-size: 13px;
+	color: rgba(255, 70, 70, 1.0);
 }
 
 .list-buttons{
@@ -266,7 +266,7 @@ nav .about-link:hover{
 }
 
 .list-buttons:hover i{
-	color: var(--bgClr);
+	color: white;
 }
 
 .list-buttons i{
@@ -363,14 +363,14 @@ nav .about-link:hover{
 .cancel:hover{
 	background-color: red;
 	border: 2px solid red;
-	color: var(--bgClr);
+	color: white;
 	box-shadow: 0 0 30px 1px red;
 }
 
 .add:hover{
 	background-color: green;
 	border: 2px solid green;
-	color: var(--bgClr);
+	color: white;
 	box-shadow: 0 0 30px 1px green;
 }
 
@@ -389,7 +389,7 @@ nav .about-link:hover{
 
 .delete-account:hover{
 	background-color: red;
-	color: var(--bgClr);
+	color: white;
 	box-shadow: 0 0 30px 1px red;
 }
 
@@ -408,7 +408,7 @@ nav .about-link:hover{
 
 .change-pass:hover{
 	background-color: green;
-	color: var(--bgClr);
+	color: white;
 	box-shadow: 0 0 30px 1px green;
 }
 

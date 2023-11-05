@@ -13,10 +13,18 @@
 		{% endif %}
 
 		<div class="inputBox">
-			<input autofocus autocomplete="off" type="text" name="edited" value="{{edit}}">
-			<label>Enter &nbsp here...</label>
+			<input autofocus autocomplete="off" type="text" name="editedTask" value="{{edit}}">
+			<label>Edit &nbsp your &nbsp task...</label>
 		</div>
-		
+
+		<div class="dateBox">
+			<label>Edit deadline</label>
+			<span>Date: </span>
+			<input autofocus type="date" name="editedDate" value="{{editDate}}">
+			<span>Time: </span>
+			<input autofocus type="time" name="editedTime" value="{{editTime}}">
+		</div>
+
 		<div class="choice">
 			<a href="/">
 				<button type="button" class="cancel" name="cancel">Cancel</button>
