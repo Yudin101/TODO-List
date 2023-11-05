@@ -1,0 +1,170 @@
+diff --git a/app.py b/app.py
+index 2878912..d4954cc 100644
+--- a/app.py
++++ b/app.py
+@@ -111,6 +111,8 @@ def add():
+ 
+     if request.method == "POST":
+         todo = request.form.get("todo")
++        date = request.form.get("date")
++        time = request.form.get("time")
+ 
+         if not todo:
+             return render_template("add.html", error="empty")
+diff --git a/static/styles.css b/static/styles.css
+index 6afbe65..d891a03 100644
+--- a/static/styles.css
++++ b/static/styles.css
+@@ -115,7 +115,8 @@ a{
+ 	text-transform: uppercase;
+ 	letter-spacing: 0.1em;
+ 	cursor: pointer;
+-	transition: 0.5s;
++	
++transition: 0.5s;
+ }
+ 
+ .inputBox input[type="submit"]:hover{
+@@ -123,6 +124,26 @@ a{
+ 	background: #029be8;
+ }
+ 
++.dateBox{
++	display: flex;
++	flex-direction: column;
++	margin-top: 50px;
++	width: 430px;
++}
++
++.dateBox span{
++	margin-top: 20px;
++}
++
++.dateBox input:focus, .dateBox input:valid{
++	border-bottom: 2px solid var(--clr);
++}
++
++.dateBox label{
++	color: var(--clr);
++	letter-spacing: 0.15em;
++}
++
+ nav{
+ 	display: flex;
+ 	justify-content: space-around;
+@@ -227,6 +248,13 @@ nav .about-link:hover{
+ 	padding: 15px 25px;
+ 	width: 100%;
+ 	border-radius: 5px;
++	display: flex;
++	flex-direction: column;
++}
++
++.list-date{
++	font-size: 12px;
++	color: gray;
+ }
+ 
+ .list-buttons{
+@@ -241,7 +269,7 @@ nav .about-link:hover{
+ }
+ 
+ .list-buttons:hover i{
+-	color: var(--bgClr);
++	color: white;
+ }
+ 
+ .list-buttons i{
+@@ -338,14 +366,14 @@ nav .about-link:hover{
+ .cancel:hover{
+ 	background-color: red;
+ 	border: 2px solid red;
+-	color: var(--bgClr);
++	color: white;
+ 	box-shadow: 0 0 30px 1px red;
+ }
+ 
+ .add:hover{
+ 	background-color: green;
+ 	border: 2px solid green;
+-	color: var(--bgClr);
++	color: white;
+ 	box-shadow: 0 0 30px 1px green;
+ }
+ 
+@@ -364,7 +392,7 @@ nav .about-link:hover{
+ 
+ .delete-account:hover{
+ 	background-color: red;
+-	color: var(--bgClr);
++	color: white;
+ 	box-shadow: 0 0 30px 1px red;
+ }
+ 
+@@ -383,7 +411,7 @@ nav .about-link:hover{
+ 
+ .change-pass:hover{
+ 	background-color: green;
+-	color: var(--bgClr);
++	color: white;
+ 	box-shadow: 0 0 30px 1px green;
+ }
+ 
+diff --git a/templates/add.html b/templates/add.html
+index 28130b0..4ff9041 100644
+--- a/templates/add.html
++++ b/templates/add.html
+@@ -12,7 +12,14 @@
+ 		{% endif %}
+ 		<div class="inputBox">
+ 			<input autofocus autocomplete="off" type="text" name="todo">
+-			<label>Enter &nbsp here...</label>
++			<label>Enter &nbsp your &nbsp task...</label>
++		</div>
++		<div class="dateBox">
++			<label>Enter deadline</label>
++			<span>Date:</span>
++			<input autofocus type="date" name="date">
++			<span>Time:</span>
++			<input autofocus type="time" name="time">
+ 		</div>
+ 		<div class="choice">
+ 			<a href="/">
+diff --git a/templates/edit.html b/templates/edit.html
+index 75e436a..a2ead62 100644
+--- a/templates/edit.html
++++ b/templates/edit.html
+@@ -14,9 +14,15 @@
+ 
+ 		<div class="inputBox">
+ 			<input autofocus autocomplete="off" type="text" name="edited" value="{{edit}}">
+-			<label>Enter &nbsp here...</label>
++			<label>Edit &nbsp your &nbsp task...</label>
++		</div>
++		<div class="dateBox">
++			<label>Enter deadline</label>
++			<span>Date:</span>
++			<input autofocus type="date" name="date">
++			<span>Time:</span>
++			<input autofocus type="time" name="time">
+ 		</div>
+-		
+ 		<div class="choice">
+ 			<a href="/">
+ 				<button type="button" class="cancel" name="cancel">Cancel</button>
+diff --git a/templates/index.html b/templates/index.html
+index dabfa47..63dcaaf 100644
+--- a/templates/index.html
++++ b/templates/index.html
+@@ -17,7 +17,10 @@
+ 			{% else %}
+ 				{% for todo in todoList %}
+ 					<li>
+-						<div class="list">{{todo.todos}}</div>
++						<div class="list">
++							<!-- <span class="list-date"><strong>Deadline: </strong>09:31, 2023-11-03</span> -->
++							{{todo.todos}}
++						</div>
+ 						
+ 						<form action="/edit" method="post">
+ 							<input type="hidden" name="edit" value="{{todo.todos}}">
