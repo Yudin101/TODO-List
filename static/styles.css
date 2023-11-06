@@ -12,13 +12,16 @@
 	--bgClr: #29313c;
 }
 
+body{
+	height: 100vh;
+	background: linear-gradient(to bottom right, #1c2630, #041221);
+}
+
 main{
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	min-height: 100vh;
-	background: linear-gradient(to bottom right, #1c2630, #041221);
 }
 
 .error{
@@ -215,8 +218,8 @@ nav .about-link:hover{
 	height: auto;
 	color: white;
 	padding: 30px;
-	border: 2px solid white;
-	border-radius: 15px;
+/*	border: 2px solid white;*/
+/*	border-radius: 15px;*/
 }
 
 .contents ul li{
@@ -303,13 +306,6 @@ nav .about-link:hover{
 	width: 90%;
 	color: white;
 	padding: 50px;
-	border-radius: 5px;
-	border: 2px solid white;
-	transition: 0.2s;
-}
-
-.add-form:hover{
-	border-color: var(--clr);
 }
 
 .add-form h2{
@@ -502,4 +498,34 @@ nav .about-link:hover{
 
 .me:hover{
 	text-decoration: underline;
+}
+
+@media (max-width: 600px){
+	nav{
+		flex-direction: column;
+	}
+
+	.logout{
+		margin-top: 10px;
+	}
+
+	.contents{
+		width: 100%;
+	}
+
+	.list{
+		padding: 10px 20px;
+	}
+
+	.list-buttons{
+		font-size: 15px;
+	}
+
+	.dateBox{
+		width: 100%;
+	}
+
+	.change-contents{
+		flex-direction: column;
+	}
 }
