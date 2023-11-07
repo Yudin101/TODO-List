@@ -30,16 +30,14 @@ main{
 	font-size: 1.25rem;
 	padding: 25px;
 	border-radius: 15px;
-	margin-bottom: 15px;
+	margin: 30px 25px -15px 25px;
 }
 
 .login-register{
-/*	background: var(--bgClr);*/
 	padding: 60px 80px 60px;
 	text-align: center;
 	display: flex;
 	flex-direction: column;
-/*	border-radius: 15px;*/
 }
 
 .login-register h2{
@@ -218,8 +216,6 @@ nav .about-link:hover{
 	height: auto;
 	color: white;
 	padding: 30px;
-/*	border: 2px solid white;*/
-/*	border-radius: 15px;*/
 }
 
 .contents ul li{
@@ -503,6 +499,19 @@ nav .about-link:hover{
 @media (max-width: 600px){
 	nav{
 		flex-direction: column;
+	}
+
+	.login-register{
+		padding: 0;
+		margin-top: 65px;
+	}
+
+	.inputBox{
+		padding: 0 17px;
+	}
+
+	.inputBox label{
+		padding: 10px 17px;
 	}
 
 	.logout{
