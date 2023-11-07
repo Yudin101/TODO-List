@@ -160,6 +160,10 @@ def edit():
 def update():
     if request.method == "POST":
         editedTask = request.form.get("editedTask")
+
+        if not editedTask:
+            return render_template("edit.html", error="empty")
+
         editedTime = request.form.get("editedTime")
         editedDate = request.form.get("editedDate")
 
