@@ -57,6 +57,15 @@ a{
 	color: var(--clr);
 	font-weight: 500;
 	text-decoration: none;
+	transition: 0.1s;
+}
+
+a:hover{
+	color: #028cd1;
+}
+
+a:active{
+	color: #015e8c;
 }
 
 .inputBox{
@@ -121,7 +130,11 @@ a{
 
 .inputBox input[type="submit"]:hover{
 	letter-spacing: 0.35em;
-	background: #029be8;
+	background: #028cd1;
+}
+
+.inputBox input[type="submit"]:active{
+	background: #015e8c;
 }
 
 .dateBox{
@@ -171,6 +184,12 @@ nav button:hover{
 	box-shadow: 0 0 30px 1px rgba(10, 179, 255, 1);
 }
 
+nav button:active{
+	border-color: #0077b3;
+	background-color: #0077b3;
+	color: lightgray;
+}
+
 nav .logout{
 	color: red;
 	border-color: red;
@@ -180,6 +199,12 @@ nav .logout{
 nav .logout:hover{
 	background-color: red;
 	box-shadow: 0 0 30px 1px red;
+}
+
+nav .logout:active{
+	border-color: darkred;
+	background-color: darkred;
+	color: lightgray;
 }
 
 nav p{
@@ -241,6 +266,10 @@ nav .about-link:hover{
 	background: #029be8;
 }
 
+.add-button:active{
+	background: #0077b3;
+}
+
 .list{
 	background-color: #35404f;
 	padding: 15px 25px;
@@ -268,6 +297,10 @@ nav .about-link:hover{
 	color: white;
 }
 
+.list-buttons:active i{
+	color: lightgray;
+}
+
 .list-buttons i{
 	transition: 0.2s;
 }
@@ -281,6 +314,11 @@ nav .about-link:hover{
 	box-shadow: 0 0 30px 1px red;
 }
 
+.delete:active{
+	background-color: darkred;
+	border-color: darkred;
+}
+
 .delete i{
 	color: red;
 }
@@ -292,6 +330,11 @@ nav .about-link:hover{
 .edit:hover{
 	background-color: green;
 	box-shadow: 0 0 30px 1px green;
+}
+
+.edit:active{
+	border-color: darkgreen;
+	background-color: darkgreen;
 }
 
 .edit i{
@@ -359,11 +402,23 @@ nav .about-link:hover{
 	box-shadow: 0 0 30px 1px red;
 }
 
+.cancel:active{
+	border-color: darkred;
+	background-color: darkred;
+	color: lightgray;
+}
+
 .add:hover{
 	background-color: green;
 	border: 2px solid green;
 	color: white;
 	box-shadow: 0 0 30px 1px green;
+}
+
+.add:active{
+	border-color: darkgreen;
+	background-color: darkgreen;
+	color: lightgray;
 }
 
 .delete-account{
@@ -492,11 +547,15 @@ nav .about-link:hover{
 	color: violet;
 }
 
-.me:hover{
+.link:hover{
 	text-decoration: underline;
 }
 
 @media (max-width: 600px){
+	html{
+		overflow: hidden;
+	}
+
 	nav{
 		flex-direction: column;
 	}
