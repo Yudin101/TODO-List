@@ -7,6 +7,11 @@
 {% block main %}
 	<p class="error">Note: You CANNOT RECOVER your account!</p>
 	<div class="contents">
+		<div>
+			<a href="/settings">
+				<button class="add-button">Go Back</button>
+			</a>
+		</div>
 		<h2>Confirm deleting user : {{account}}</h2>
 
 		{% if error == "noPrevMatch" %}

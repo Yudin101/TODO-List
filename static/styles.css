@@ -270,11 +270,30 @@ nav .about-link:hover{
 	background: #0077b3;
 }
 
+.index-form{
+	width: 100%;
+}
+
 .list{
+	display: flex;
+	flex-direction: column;
 	background-color: #35404f;
 	padding: 15px 25px;
 	width: 100%;
 	border-radius: 5px;
+	border: none;
+	color: white;
+	font-size: 16px;
+	transition: 0.1s;
+}
+
+.list:hover{
+	background-color: #47566b;
+	cursor: pointer;
+}
+
+.list:active{
+	background-color: #363f4d;
 }
 
 .list-date{

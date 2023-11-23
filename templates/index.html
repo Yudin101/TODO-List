@@ -17,26 +17,24 @@
 			{% else %}
 				{% for todo in todoList %}
 					<li>
-						<div class="list">
-							{% if todo["tim"] == "" and todo["dat"] == "" %}
-								<span class="list-date"><strong>No Deadline</strong></span><br>
-
-							{% elif todo["tim"] != "" and todo["dat"] == "" %}
-								<span class="list-date"><strong>Deadline:</strong> {{ todo["tim"] }}</span><br>
-
-							{% elif todo["tim"] == "" and todo["dat"] != "" %}
-								<span class="list-date"><strong>Deadline:</strong> {{ todo["dat"] }}</span><br>
-
-							{% else %}
-								<span class="list-date"><strong>Deadline:</strong> {{ todo["tim"] }}, {{ todo["dat"] }}</span><br>
-							{% endif %}
-
-							{{ todo["todos"] }}
-						</div>
-						
-						<form action="/edit" method="post">
+						<form class="index-form" action="/edit" method="post">
 							<input type="hidden" name="edit" value="{{todo.todos}}">
-							<button class="list-buttons edit"><i class="fa-solid fa-pen"></i></button>
+							<button class="list">
+									{% if todo["tim"] == "" and todo["dat"] == "" %}
+										<span class="list-date"><strong>No Deadline</strong></span>
+
+									{% elif todo["tim"] != "" and todo["dat"] == "" %}
+										<span class="list-date"><strong>Deadline:</strong> {{ todo["tim"] }}</span>
+
+									{% elif todo["tim"] == "" and todo["dat"] != "" %}
+										<span class="list-date"><strong>Deadline:</strong> {{ todo["dat"] }}</span>
+
+									{% else %}
+										<span class="list-date"><strong>Deadline:</strong> {{ todo["tim"] }}, {{ todo["dat"] }}</span>
+									{% endif %}
+
+									<p class="task-text">{{ todo["todos"] }}</p>
+							</button>
 						</form>
 
 						<form action="/" method="post">
