@@ -5,13 +5,7 @@
 {% endblock %}
 
 {% block main %}
-	{% if error == "already" %}
-		<p class="error">Username already used!</p>
-	{% elif error == "noMatch" %}
-		<p class="error">Enter matching passwords!</p>
-	{% endif %}
-
-	<form class="login-register" action="/register" method="post">
+	<form class="login-register" action="/register" method="post" name="accountForm" onsubmit="validateForm()">
 		<h2>New Account</h2>
 		<div class="inputBox">
 			<input autocomplete="off" autofocus type="text" name="username" required>
@@ -34,4 +28,29 @@
 
 		<p>Already have an account ? <a href="/login">Login</a></p>
 	</form>
+
+	<div class="popupBg" id="popupBg"> </div>
+
+	<div class="popup" id="special-char">
+		<p>Password must contain at least 1 special character!</p>
+		<button onclick="closePopup()">Ok</button>
+	</div>
+
+	<div class="popup" id="minimum-char">
+		<p>Password must contain at least 8 characters!</p>
+		<button onclick="closePopup()">Ok</button>
+	</div>
+
+	<div class="popup" id="same-char">
+		<p>Both passwords must be same!</p>
+		<button onclick="closePopup()">Ok</button>
+	</div>
+
+	{% if error == "already" %}
+		<div class="popupBg" id="popupBgSecond" style="visibility: visible;"> </div>
+		<div class="popup" id="already-user" style="visibility: visible; transform: scale(1.0);">
+			<p>Username already exists!</p>
+			<button id="okButton" onclick="closePopupAlready()">Ok</button>
+		</div>
+	{% endif %}
 {% endblock %}

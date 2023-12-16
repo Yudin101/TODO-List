@@ -52,15 +52,11 @@ def register():
 
         username = request.form.get("username")
         password = request.form.get("password")
-        confirmPassword = request.form.get("confirmPassword")
 
         row = db.execute("SELECT * FROM users WHERE username = ?", username)
         
         if len(row) > 0:
             return render_template("register.html", error="already")
-
-        if confirmPassword != password:
-            return render_template("register.html", error="noMatch")
 
         hashedPassword = generate_password_hash(password, "pbkdf2", 16)
         db.execute("INSERT INTO users (username, hash) VALUES (?, ?)", username, hashedPassword)
