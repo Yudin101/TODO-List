@@ -52,15 +52,11 @@ def register():
 
         username = request.form.get("username")
         password = request.form.get("password")
-        confirmPassword = request.form.get("confirmPassword")
 
         row = db.execute("SELECT * FROM users WHERE username = ?", username)
         
         if len(row) > 0:
             return render_template("register.html", error="already")
-
-        if confirmPassword != password:
-            return render_template("register.html", error="noMatch")
 
         hashedPassword = generate_password_hash(password, "pbkdf2", 16)
         db.execute("INSERT INTO users (username, hash) VALUES (?, ?)", username, hashedPassword)
@@ -83,12 +79,6 @@ def login():
     if request.method == "POST":
         username = request.form.get("username")
         password = request.form.get("password")
-
-        if not username:
-            return render_template("login.html", error=True)
-
-        elif not password:
-            return render_template("login.html", error=True)
 
         row = db.execute("SELECT * FROM users WHERE username = ?", username)
 
@@ -214,18 +204,15 @@ def change():
 
     if request.method == "POST":
         currentPassword = request.form.get("currentPassword")
-        newPassword = request.form.get("newPassword")
-        newPasswordConfirm = request.form.get("newPasswordConfirm")
+        password = request.form.get("password")
+        confirmPassword = request.form.get("confirmPassword")
 
         row = db.execute("SELECT hash FROM users WHERE username = ?", account)
         
         if not check_password_hash(row[0]["hash"], currentPassword):
             return render_template("change.html", account=account, error="noPrevMatch")
 
-        if newPasswordConfirm !=  newPassword:
-            return render_template("change.html", account=account, error="noNewMatch")
-
-        db.execute("UPDATE users SET hash = ? WHERE username = ?", generate_password_hash(newPassword, "pbkdf2", 16), account)
+        db.execute("UPDATE users SET hash = ? WHERE username = ?", generate_password_hash(password, "pbkdf2", 16), account)
         return render_template("change.html", account=account, error="success") # sounds weird lol
 
     return render_template("change.html", account=account)

@@ -6,10 +6,14 @@
 
 {% block main %}
 	{% if error %}
-		<p class="error">Invalid username and/or password</p>
+		<div class="popupBg" id="popupBgSecond" style="visibility: visible;"> </div>
+		<div class="popup" id="already-user" style="visibility: visible; transform: scale(1.0);">
+			<p>Invalid Username and/or Password!</p>
+			<button id="okButton" onclick="closePopupAlready()">Ok</button>
+		</div>
 	{% endif %}
 
-	<form class="login-register" action="/login" method="post">
+	<form class="login-register" action="/login" method="post" name="accForm">
 		<h2>Login</h2>
 		<div class="inputBox">
 			<input autofocus autocomplete="off" type="text" name="username" required>
