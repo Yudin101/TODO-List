@@ -52,3 +52,21 @@ function validateForm(){
 
 	return true;
 }
+
+
+function toggleSidebar() {
+    var sidebar = document.getElementById('sidebar');
+
+    var isSidebarOpen = sidebar.style.width === '250px';
+
+    if (!isSidebarOpen) {
+        sidebar.style.width = '250px';
+    } else {
+        sidebar.style.width = '0';
+    }
+}
+
+function closeSidebar() {
+    var sidebar = document.getElementById('sidebar');
+    sidebar.style.width = '0';
+}

@@ -228,7 +228,7 @@ nav{
 	color: white;
 }
 
-nav button{
+.nav-button{
 	background: none;
 	font-size: 15px;
 	font-weight: 500;
@@ -239,31 +239,31 @@ nav button{
 	cursor: pointer;
 }
 
-nav button:hover{
+.nav-button:hover{
 	letter-spacing: 1px;
 	background-color: var(--clr);
 	color: white;
 	box-shadow: 0 0 30px 1px rgba(10, 179, 255, 1);
 }
 
-nav button:active{
+.nav-button:active{
 	border-color: #0077b3;
 	background-color: #0077b3;
 	color: lightgray;
 }
 
-nav .logout{
+.logout{
 	color: red;
 	border-color: red;
 	margin-right: 15px;
 }
 
-nav .logout:hover{
+.logout:hover{
 	background-color: red;
 	box-shadow: 0 0 30px 1px red;
 }
 
-nav .logout:active{
+.logout:active{
 	border-color: darkred;
 	background-color: darkred;
 	color: lightgray;
@@ -278,12 +278,12 @@ nav p{
 	color: white;
 }
 
-nav .title-about{
+.title-about{
 	display: flex;
 	align-items: baseline;
 }
 
-nav .about-link{
+.about-link{
 	color: white;
 	font-size: 18px;
 	font-weight: 400;
@@ -291,7 +291,7 @@ nav .about-link{
 	transition: 0.1s;
 }
 
-nav .about-link:hover{
+.about-link:hover{
 	color: var(--clr);
 	text-decoration: underline;
 }
@@ -633,21 +633,115 @@ nav .about-link:hover{
 	text-decoration: underline;
 }
 
+.hidden-desktop{
+	display: none;
+}
+
 @media (max-width: 600px){
 	html{
 		overflow: hidden;
 	}
 
-	nav{
+	.index-title{
+		display: flex;
+		margin-left: 100px;
+		color: white;
+	}
+
+	.index-title a{
+		color: white;
+		font-weight: 600;
+	}
+
+	.desktop-navbar {
+        display: none;
+    }
+
+	.mobile-navbar {
+		display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        background-color: var(--bgClr);
+        padding: 15px;
+	}
+
+	.mobile-navbar button {
+		font-size: 20px;
+		color: #fff;
+		background: none;
+		border: none;
+		cursor: pointer;
+	}
+
+	.toggle-btn {
+		display: flex;
+	    font-size: 20px;
+        color: white;
+        background: none;
+        border: none;
+        cursor: pointer;
+	}
+
+    .about-link{
+    	margin-left: 0;
+    }
+
+	.logout{
+		margin-top: 10px;
+		font-size: 17px;
+		font-weight: 600;
+	}
+
+	.sidebar {
+		display: flex;
 		flex-direction: column;
+		height: 100%;
+		width: 0;
+		position: fixed;
+		top: 0;
+		left: 0;
+		background: rgba(0, 0, 0, 0.3);
+		backdrop-filter: blur(30px);
+		overflow-x: hidden;
+		padding-top: 60px;
+		transition: 0.5s;
+		color: white;
 	}
 
-	nav p{
-		display: none;
+	.sidebar h1 {
+		padding: 15px 25px;
+		text-decoration: none;
+		font-size: 25px;
+		color: #818181;
+		display: block;
+		transition: 0.3s;
 	}
 
-	nav .title-about{
-		margin-bottom: 0;
+	.sidebar h1:hover {
+		color: #f1f1f1;
+	}
+
+	.sidebar-div{
+		display: flex;
+		flex-direction: column;
+		margin-left: 25px;
+	}
+
+	.sidebar-div a{
+		display: inline;
+		margin-bottom: 15px;
+	}
+
+	.close-btn {
+		font-size: 30px;
+		position: absolute;
+		top: 20px;
+		right: 25px;
+		cursor: pointer;
+	}
+
+	.close-btn:hover{
+		transform: scale(1.1);
 	}
 
 	.login-register{
@@ -661,10 +755,6 @@ nav .about-link:hover{
 
 	.inputBox label{
 		padding: 10px 17px;
-	}
-
-	.logout{
-		margin-top: 10px;
 	}
 
 	.contents{
