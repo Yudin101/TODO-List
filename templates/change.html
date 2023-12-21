@@ -5,6 +5,16 @@
 {% endblock %}
 
 {% block main %}
+	{% if error == "noPrevMatch" %}
+		<div class="popupBg" id="popupBgSecond" style="visibility: visible;"> </div>
+		<div class="popup" id="already-user" style="visibility: visible; transform: scale(0.8);">
+			<p>Incorrect Current Password!</p>
+			<button id="okButton" onclick="closePopupAlready()">Ok</button>
+		</div>
+	{% elif error == "success" %}
+		<p class="success">Password Changed!</p>
+	{% endif %}
+
 	<div class="contents">
 		<div>
 			<a href="/settings">
@@ -12,16 +22,6 @@
 			</a>
 		</div>
 		<h2>Change password for user : {{account}}</h2>
-
-		{% if error == "noPrevMatch" %}
-			<div class="popupBg" id="popupBgSecond" style="visibility: visible;"> </div>
-			<div class="popup" id="already-user" style="visibility: visible; transform: scale(1.0);">
-				<p>Incorrect Current Password!</p>
-				<button id="okButton" onclick="closePopupAlready()">Ok</button>
-			</div>
-		{% elif error == "success" %}
-			<p class="success">Password Changed!</p>
-		{% endif %}
 
 		<form action="/change" method="post" name="accountForm" onsubmit="validateForm()">
 			<div class="change-contents">
@@ -47,21 +47,22 @@
 			</div>
 		</form>
 
-		<div class="popupBg" id="popupBg"> </div>
+	</div>
 
-		<div class="popup" id="special-char">
-			<p>Password must contain at least 1 special character!</p>
-			<button onclick="closePopup()">Ok</button>
-		</div>
+	<div class="popupBg" id="popupBg"> </div>
 
-		<div class="popup" id="minimum-char">
-			<p>Password must contain at least 8 characters!</p>
-			<button onclick="closePopup()">Ok</button>
-		</div>
+	<div class="popup" id="special-char">
+		<p>Password must contain at least 1 special character!</p>
+		<button onclick="closePopup()">Ok</button>
+	</div>
 
-		<div class="popup" id="same-char">
-			<p>Both passwords must be same!</p>
-			<button onclick="closePopup()">Ok</button>
-		</div>
+	<div class="popup" id="minimum-char">
+		<p>Password must contain at least 8 characters!</p>
+		<button onclick="closePopup()">Ok</button>
+	</div>
+
+	<div class="popup" id="same-char">
+		<p>Both passwords must be same!</p>
+		<button onclick="closePopup()">Ok</button>
 	</div>
 {% endblock %}

@@ -62,12 +62,12 @@ main{
 	z-index: 1;
 	transform: scale(0.1);
 	visibility: hidden;
-	transition: 0.4s;
+	transition: transform 0.4s;
 }
 
 .open-popup{
 	visibility: visible;
-	transform: scale(1.0);
+	transform: scale(0.8);
 }
 
 .close-popupAlready{
@@ -642,6 +642,14 @@ nav .about-link:hover{
 		flex-direction: column;
 	}
 
+	nav p{
+		display: none;
+	}
+
+	nav .title-about{
+		margin-bottom: 0;
+	}
+
 	.login-register{
 		padding: 0;
 		margin-top: 65px;
@@ -677,5 +685,10 @@ nav .about-link:hover{
 
 	.change-contents{
 		flex-direction: column;
+	}
+
+	.popup{
+		transform: scale(0.8);
+		font-size: 25px;
 	}
 }

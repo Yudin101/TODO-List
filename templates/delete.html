@@ -5,7 +5,16 @@
 {% endblock %}
 
 {% block main %}
+	{% if error == "noPrevMatch" %}
+		<div class="popupBg" id="popupBgSecond" style="visibility: visible;"> </div>
+		<div class="popup" id="already-user" style="visibility: visible; transform: scale(0.8);">
+			<p>Incorrect Current Password!</p>
+			<button id="okButton" onclick="closePopupAlready()">Ok</button>
+		</div>
+	{% endif %}
+
 	<p class="error">Note: You CANNOT RECOVER your account!</p>
+
 	<div class="contents">
 		<div>
 			<a href="/settings">
@@ -14,9 +23,6 @@
 		</div>
 		<h2>Confirm deleting user : {{account}}</h2>
 
-		{% if error == "noPrevMatch" %}
-			<p class="error">Incorrect Current Password!</p>
-		{% endif %}
 
 		<form action="/delete" method="post">
 			<div class="change-contents">
