@@ -7,11 +7,9 @@
 {% block main %}
 	<form class="add-form" action="/add" method="post">
 		<h2>Add new TODO</h2>
-		{% if error=="empty" %}
-			<p class="error">Your task cannot be empty!</p>
-		{% endif %}
+
 		<div class="inputBox">
-			<input autofocus autocomplete="off" type="text" name="todo">
+			<input autofocus autocomplete="off" type="text" name="todo" required>
 			<label>Enter &nbsp your &nbsp task...</label>
 		</div>
 
