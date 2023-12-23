@@ -642,24 +642,13 @@ nav p{
 		overflow: hidden;
 	}
 
-	.index-title{
-		display: flex;
-		margin-left: 100px;
-		color: white;
-	}
-
-	.index-title a{
-		color: white;
-		font-weight: 600;
-	}
-
 	.desktop-navbar {
         display: none;
     }
 
 	.mobile-navbar {
 		display: flex;
-        justify-content: flex-start;
+        justify-content: space-between;
         align-items: center;
         background-color: var(--bgClr);
         padding: 15px;
@@ -673,6 +662,20 @@ nav p{
 		cursor: pointer;
 	}
 
+	.index-title{
+		display: inline-block;
+	}
+
+	.index-title a{
+		color: white;
+		font-weight: 600;
+	}
+	
+	.titleDiv {
+        text-align: center;
+        flex-grow: 1;
+	}
+
 	.toggle-btn {
 		display: flex;
 	    font-size: 20px;
@@ -680,16 +683,6 @@ nav p{
         background: none;
         border: none;
         cursor: pointer;
-	}
-
-    .about-link{
-    	margin-left: 0;
-    }
-
-	.logout{
-		margin-top: 10px;
-		font-size: 17px;
-		font-weight: 600;
 	}
 
 	.sidebar {
@@ -730,6 +723,16 @@ nav p{
 	.sidebar-div a{
 		display: inline;
 		margin-bottom: 15px;
+	}
+
+    .about-link{
+    	margin-left: 0;
+    }
+
+	.logout{
+		margin-top: 10px;
+		font-size: 17px;
+		font-weight: 600;
 	}
 
 	.close-btn {

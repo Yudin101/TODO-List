@@ -11,8 +11,12 @@
 <body>
 	{% if session["user_id"] %}
         <div class="mobile-navbar hidden-desktop">
-            <button class="toggle-btn hidden-desktop" onclick="toggleSidebar()">☰</button>
-            <h1 class="index-title hidden-desktop"><a href="/">TODO List</a></h1>
+            <div class="toggleDiv">
+                <button class="toggle-btn hidden-desktop" onclick="toggleSidebar()">☰</button>
+            </div>
+            <div class="titleDiv">
+                <h1 class="index-title hidden-desktop"><a href="/">TODO List</a></h1>
+            </div>
         </div>
 
         <nav class="desktop-navbar">
