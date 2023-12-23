@@ -642,6 +642,19 @@ nav p{
 		overflow: hidden;
 	}
 
+	.contents{
+		width: 100%;
+		padding: 15px;
+	}
+
+	.list{
+		padding: 10px 20px;
+	}
+
+	.list-buttons{
+		font-size: 15px;
+	}
+
 	.desktop-navbar {
         display: none;
     }
@@ -699,6 +712,7 @@ nav p{
 		padding-top: 60px;
 		transition: 0.5s;
 		color: white;
+		z-index: 1;
 	}
 
 	.sidebar h1 {
@@ -752,24 +766,13 @@ nav p{
 		margin-top: 65px;
 	}
 
-	.inputBox{
-		padding: 0 17px;
+	.popup{
+		transform: scale(0.8);
+		font-size: 25px;
 	}
 
-	.inputBox label{
-		padding: 10px 17px;
-	}
-
-	.contents{
-		width: 100%;
-	}
-
-	.list{
-		padding: 10px 20px;
-	}
-
-	.list-buttons{
-		font-size: 15px;
+	.add-form{
+		padding: 15px;
 	}
 
 	.dateBox{
@@ -778,10 +781,5 @@ nav p{
 
 	.change-contents{
 		flex-direction: column;
-	}
-
-	.popup{
-		transform: scale(0.8);
-		font-size: 25px;
 	}
 }
