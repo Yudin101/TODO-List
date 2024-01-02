@@ -13,9 +13,9 @@
 }
 
 body{
-	height: 100vh;
+	height: auto;
+	min-height: 100vh;
 	background: linear-gradient(to bottom right, #1c2630, #041221);
-	overflow: hidden;
 }
 
 main{
@@ -638,10 +638,6 @@ nav p{
 }
 
 @media (max-width: 600px){
-	html{
-		overflow: hidden;
-	}
-
 	.contents{
 		width: 100%;
 		padding: 15px;
