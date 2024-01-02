@@ -25,12 +25,11 @@ db.execute("CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREME
 
 db.execute("CREATE TABLE IF NOT EXISTS todoList (user_id INTEGER NOT NULL, todos TEXT NOT NULL, id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, dat TEXT, tim TEXT);")
 
-
 # Index Page
 @app.route("/", methods=["GET", "POST"])
 @login_required
 def index():
-    account = db.execute("SELECT username FROM users WHERE id=?", session["user_id"])[0]["username"]
+    todoCount = db.execute("SELECT COUNT(todos) FROM todoList WHERE user_id=?", session["user_id"])[0]["COUNT(todos)"]
     
     if request.method == "POST":
         remove = request.form.get("remove")
@@ -42,7 +41,7 @@ def index():
         todoList = db.execute("SELECT todos, dat, tim FROM todoList WHERE user_id = ?", session["user_id"])
         todoLen = len(todoList)
 
-        return render_template("index.html", account=account, todoList=todoList, todoLen=todoLen)
+        return render_template("index.html", todoCount=todoCount, todoList=todoList, todoLen=todoLen)
 
 
 # Register Page
@@ -106,7 +105,7 @@ def logout():
 @app.route("/add", methods=["GET", "POST"])
 @login_required
 def add():
-    account = db.execute("SELECT username FROM users WHERE id=?", session["user_id"])[0]["username"]
+    todoCount = db.execute("SELECT COUNT(todos) FROM todoList WHERE user_id=?", session["user_id"])[0]["COUNT(todos)"]
 
     if request.method == "POST":
         todo = request.form.get("todo")
@@ -117,14 +116,14 @@ def add():
 
         return redirect("/")
     else:
-        return render_template("add.html", account=account)
+        return render_template("add.html", todoCount=todoCount)
 
 
 # Edit Task Page
 @app.route("/edit", methods=["GET", "POST"])
 @login_required
 def edit():
-    account = db.execute("SELECT username FROM users WHERE id=?", session["user_id"])[0]["username"]
+    todoCount = db.execute("SELECT COUNT(todos) FROM todoList WHERE user_id=?", session["user_id"])[0]["COUNT(todos)"]
 
     if request.method == "POST":
         global edit
@@ -135,7 +134,7 @@ def edit():
         editTime = db.execute("SELECT tim FROM todoList WHERE todos=?", edit)[0]["tim"]
         editDate = db.execute("SELECT dat FROM todoList WHERE todos=?", edit)[0]["dat"]
 
-        return render_template("edit.html", edit=edit, editTime=editTime, editDate=editDate, account=account)
+        return render_template("edit.html", edit=edit, editTime=editTime, editDate=editDate, todoCount=todoCount)
 
     else:
         return redirect("/")
@@ -197,7 +196,7 @@ def settings():
 @app.route("/change", methods=["GET", "POST"])
 @login_required
 def change():
-    account = db.execute("SELECT * FROM users WHERE id = ?", session["user_id"])[0]["username"]
+    account = db.execute("SELECT username FROM users WHERE id = ?", session["user_id"])[0]["username"]
 
     if request.method == "POST":
         currentPassword = request.form.get("currentPassword")
@@ -219,7 +218,7 @@ def change():
 @app.route("/about", methods=["GET"])
 @login_required
 def about():
-    account = db.execute("SELECT * FROM users WHERE id = ?", session["user_id"])[0]["username"]
+    account = db.execute("SELECT username FROM users WHERE id = ?", session["user_id"])[0]["username"]
 
     return render_template("about.html", account=account)
 

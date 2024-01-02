@@ -30,7 +30,9 @@
             </div>
 
             {% if account %}
-                <p>User: {{account}}</p>
+                <p>User: {{ account }}</p>
+            {% elif todoCount %}
+                <p>Pending Tasks: {{ todoCount }}</p>
             {% endif %}
 
             <div>
