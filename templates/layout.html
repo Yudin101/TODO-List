@@ -49,17 +49,23 @@
         <div class="sidebar hidden-desktop" id="sidebar">
             <div class="close-btn" onclick="closeSidebar()">×</div>
 
-            <h1>
-            	<a href="/about" class="about-link">About</a>
-        	</h1>
+            <div class="sidebar-div-top">
+                <h1>
+                    <a href="/" class="about-link"><i class="fa-solid fa-house"></i>  Home</a>
+                </h1>
+
+                <h1>
+                	<a href="/about" class="about-link"><i class="fa-solid fa-user"></i>  About</a>
+            	</h1>
+            </div>
         	
-            <div class="sidebar-div">
-	            <a href="/logout">
-	                <button class="nav-button logout">Logout</button>
-	            </a>
-	            
+            <div class="sidebar-div-bottom">
 	            <a href="/settings">
 	                <button class="nav-button"><i class="fa-solid fa-gear"></i></button>
+	            </a>
+
+	            <a href="/logout">
+	                <button class="nav-button logout">Logout</button>
 	            </a>
             </div>
         </div>

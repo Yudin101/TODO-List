@@ -237,6 +237,7 @@ nav{
 	border: 2px solid var(--clr);
 	transition: 0.2s;
 	cursor: pointer;
+	pointer-events: auto;
 }
 
 .nav-button:hover{
@@ -697,6 +698,7 @@ nav p{
 	.sidebar {
 		display: flex;
 		flex-direction: column;
+		justify-content: space-between;
 		height: 100%;
 		width: 0;
 		position: fixed;
@@ -712,7 +714,7 @@ nav p{
 	}
 
 	.sidebar h1 {
-		padding: 15px 25px;
+		padding: 0 25px;
 		text-decoration: none;
 		font-size: 25px;
 		color: #818181;
@@ -724,19 +726,26 @@ nav p{
 		color: #f1f1f1;
 	}
 
-	.sidebar-div{
+	.sidebar-div-bottom{
 		display: flex;
 		flex-direction: column;
 		margin-left: 25px;
 	}
 
-	.sidebar-div a{
+	.sidebar-div-bottom a{
 		display: inline;
 		margin-bottom: 15px;
+		pointer-events: none;
 	}
 
     .about-link{
+    	font-size: 20px;
+    	margin-bottom: 8px;
     	margin-left: 0;
+    }
+
+    .about-link:hover{
+    	text-decoration: none;
     }
 
 	.logout{
