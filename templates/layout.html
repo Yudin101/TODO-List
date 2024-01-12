@@ -31,6 +31,8 @@
 
             {% if account %}
                 <p>User: {{ account }}</p>
+            {% elif todoCount == 0 %}
+                <p>No Pending Tasks!</p>
             {% elif todoCount %}
                 <p>Pending Tasks: {{ todoCount }}</p>
             {% endif %}
