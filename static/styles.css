@@ -798,18 +798,19 @@ nav p{
 	}
 
 	#add-button-phone{
+		display: block;
 		position: fixed;
 		right: 0;
 		bottom: 0;
 		padding: 0;
-		margin: 0 20px 50px 0;
+		margin: 0 40px 50px 0;
 		border: none;
 		height: 60px;
 		width: 60px;
 		border-radius: 50%;
 		font-size: 40px;
 		font-weight: 300;
-		scale: 1.2;
+		scale: 1.1;
 	}
 
 	.add-button-phone{
