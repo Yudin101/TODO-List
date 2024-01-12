@@ -312,7 +312,7 @@ nav p{
 	margin-bottom: 15px;
 }
 
-.add-button{
+.rect-button-top{
 	background: var(--clr);
 	border: none;
 	padding: 5px 35px;
@@ -325,11 +325,11 @@ nav p{
 	transition: 0.2s;
 }
 
-.add-button:hover{
+.rect-button-top:hover{
 	background: #029be8;
 }
 
-.add-button:active{
+.rect-button-top:active{
 	background: #0077b3;
 }
 
@@ -638,7 +638,33 @@ nav p{
 	display: none;
 }
 
-@media (max-width: 600px){
+
+@media (max-width: 700px){
+	#add-button-desktop{
+		display: none;
+	}
+
+	#add-button-phone{
+		position: fixed;
+		right: 0;
+		bottom: 0;
+		padding: 0;
+		margin: 0 20px 50px 0;
+		border: none;
+		height: 60px;
+		width: 60px;
+		border-radius: 50%;
+		font-size: 40px;
+		font-weight: 300;
+		scale: 1.2;
+	}
+
+	.add-button-phone{
+		display: flex;
+		justify-content: right;
+		background-color: red;
+	}
+
 	.contents{
 		width: 100%;
 		padding: 15px;
