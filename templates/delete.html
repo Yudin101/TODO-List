@@ -8,12 +8,11 @@
 	{% if error == "noPrevMatch" %}
 		<div class="popupBg" id="popupBgSecond" style="visibility: visible;"> </div>
 		<div class="popup" id="already-user" style="visibility: visible; transform: scale(0.8);">
-			<p>Incorrect Current Password!</p>
+			<p>Incorrect Password!</p>
 			<button id="okButton" onclick="closePopupAlready()">Ok</button>
 		</div>
 	{% endif %}
-
-	<p class="error"><b>Note: You CANNOT RECOVER your account!</b></p>
+	<p class="delete-error"><b>You CANNOT RECOVER your account!</b></p>
 
 	<div class="contents">
 		<div>

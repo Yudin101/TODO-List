@@ -8,12 +8,8 @@
 	<form class="add-form" action="/update" method="post">
 		<h2>Edit existing TODO</h2>
 
-		{% if error=="empty" %}
-			<p class="error">Your task cannot be empty!</p>
-		{% endif %}
-
 		<div class="inputBox">
-			<input autofocus autocomplete="off" type="text" name="editedTask" value="{{edit}}">
+			<input autofocus autocomplete="off" type="text" name="editedTask" value="{{edit}}" required>
 			<label>Edit &nbsp your &nbsp task...</label>
 		</div>
 
