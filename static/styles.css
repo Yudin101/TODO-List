@@ -41,7 +41,7 @@ main{
 	backdrop-filter: blur(3px);
 	z-index: 1;
 	visibility: hidden;
-	transition: 0.4s;
+	transition: visibility 0.4s;
 }
 
 .open-popupBg{
@@ -67,7 +67,7 @@ main{
 
 .open-popup{
 	visibility: visible;
-	transform: scale(0.8);
+	transform: scale(1);
 }
 
 .close-popupAlready{
@@ -827,5 +827,9 @@ nav p{
 
 	.empty-img{
 		width: 70%;
+	}
+
+	.open-popup{
+		transform: scale(0.8);
 	}
 }

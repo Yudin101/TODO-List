@@ -112,6 +112,12 @@ def add():
         time = request.form.get("time")
         date = request.form.get("date")
 
+        todoList = db.execute("SELECT todos FROM todoList WHERE user_id = ?", session["user_id"])
+
+        for todoListDict in todoList:
+            if todo == todoListDict["todos"]:
+                return render_template("add.html", todoCount=todoCount, error=True)
+
         db.execute("INSERT INTO todoList (user_id, todos, dat, tim) VALUES (?, ?, ?, ?)", session["user_id"], todo, date, time)
 
         return redirect("/")

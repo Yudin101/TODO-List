@@ -5,6 +5,14 @@
 {% endblock %}
 
 {% block main %}
+	{% if error %}
+		<div class="popupBg" id="popupBgSecond" style="visibility: visible;"> </div>
+		<div class="popup" id="already-user" style="visibility: visible; transform: scale(0.8);">
+			<p>Task already exists!</p>
+			<button id="okButton" onclick="closePopupAlready()">Ok</button>
+		</div>
+	{% endif %}
+
 	<form class="add-form" action="/add" method="post">
 		<h2>Add new TODO</h2>
 
