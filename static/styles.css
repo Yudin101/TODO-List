@@ -206,17 +206,16 @@ a:active{
 	width: 430px;
 }
 
+.dateBox p{
+	color: var(--clr);
+}
+
 .dateBox span{
 	margin-top: 20px;
 }
 
 .dateBox input:focus, .dateBox input:valid{
 	border-bottom: 2px solid var(--clr);
-}
-
-.dateBox label{
-	color: var(--clr);
-	letter-spacing: 0 15em;
 }
 
 nav{
