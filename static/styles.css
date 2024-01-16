@@ -634,6 +634,20 @@ nav p{
 	text-decoration: underline;
 }
 
+.empty-img-div{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 60vh;
+	color: gray;
+}
+
+.empty-img{
+	width: 30%;
+	margin-bottom: 15px;
+}
+
 .hidden-desktop{
 	display: none;
 }
@@ -817,5 +831,9 @@ nav p{
 		display: flex;
 		justify-content: right;
 		background-color: red;
+	}
+
+	.empty-img{
+		width: 70%;
 	}
 }

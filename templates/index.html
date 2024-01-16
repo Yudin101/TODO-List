@@ -11,10 +11,14 @@
 				<button id="add-button-desktop" class="rect-button-top">Add</button>
 			</a>
 		</div>
-		<ul>
-			{% if todoLen == 0 %}
-				<p>Seems like all your tasks are completed!</p>
-			{% else %}
+		{% if todoLen == 0 %}
+			<!-- <p>Seems like all your tasks are completed!</p> -->
+			<div class="empty-img-div">
+				<img class="empty-img" src="/static/images/empty.png">
+				<h4 class="empty-text">Seems like all your tasks are completed !</h4>
+			</div>
+		{% else %}
+			<ul>
 				{% for todo in todoList %}
 					<li>
 						<form class="index-form" action="/edit" method="post">
@@ -43,8 +47,8 @@
 						</form>
 					</li>
 				{% endfor %}
-			{% endif %}
-		</ul>
+			</ul>
+		{% endif %}
 		<div class="add-button-phone">
 			<a href="/add">
 				<button class="rect-button-top" id="add-button-phone">+</button>
