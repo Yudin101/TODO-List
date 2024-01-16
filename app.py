@@ -31,6 +31,7 @@ db.execute("CREATE TABLE IF NOT EXISTS todoList (user_id INTEGER NOT NULL, todos
 def index():
     todoCount = db.execute("SELECT COUNT(todos) FROM todoList WHERE user_id=?", session["user_id"])[0]["COUNT(todos)"]
     
+    # POST method in index is to delete the tasks
     if request.method == "POST":
         remove = request.form.get("remove")
         db.execute("DELETE FROM todoList WHERE todos = ?", remove)
@@ -54,6 +55,7 @@ def register():
 
         row = db.execute("SELECT * FROM users WHERE username = ?", username)
         
+        # Checking if the user already exists
         if len(row) > 0:
             return render_template("register.html", error="already")
 
@@ -112,8 +114,8 @@ def add():
         time = request.form.get("time")
         date = request.form.get("date")
 
+        # Preventing duplicate tasks
         todoList = db.execute("SELECT todos FROM todoList WHERE user_id = ?", session["user_id"])
-
         for todoListDict in todoList:
             if todo == todoListDict["todos"]:
                 return render_template("add.html", todoCount=todoCount, error=True)
@@ -164,7 +166,7 @@ def update():
         return redirect("/")
 
 
-# Delete Tasks
+# Delete Account
 @app.route("/delete", methods=["GET", "POST"])
 @login_required
 def delete():
