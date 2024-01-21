@@ -628,6 +628,7 @@ nav p{
 	align-items: center;
 	height: 60vh;
 	color: gray;
+	text-align: center;
 }
 
 .empty-img{
