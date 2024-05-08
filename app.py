@@ -47,10 +47,10 @@ def conv24to12(time):
 
     if hour > 12:
         hour -= 12
-        return f"0{hour}{time[2:]} PM"
+        return f"{hour}{time[2:]} PM"
 
     if hour < 12:
-        return f"0{hour}{time[2:]} AM"
+        return f"{hour}{time[2:]} AM"
 
 
 # Index Page
@@ -139,7 +139,12 @@ def add():
 
     if request.method == "POST":
         todo = request.form.get("todo")
-        time = conv24to12(request.form.get("time"))
+
+        # This allows creation of tasks without specifying time
+        time = request.form.get("time")
+        if time != "":
+            time = conv24to12(time)
+
         date = request.form.get("date")
 
         # Preventing duplicate tasks
