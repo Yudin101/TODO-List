@@ -5,29 +5,39 @@
 {% endblock %}
 
 {% block main %}
-	<form class="login-register" action="/register" method="post" name="accountForm" onsubmit="validateForm()">
-		<h2>New Account</h2>
-		<div class="inputBox">
-			<input autocomplete="off" autofocus type="text" name="username" required>
-			<label>USERNAME</label>
-		</div>
+	<div class="login-register-main">
+		<form class="login-register-form" action="/register" method="post" name="accountForm" onsubmit="validateForm()">
+			<div class="login-register-contents">
+				<h1>TODO - List</h1>
+				<p style="color: gray;">Join us! Sign up now for organized productivity.</p>
+			</div>
 
-		<div class="inputBox">
-			<input type="password" name="password" required>
-			<label>PASSWORD</label>
-		</div>
+			<div class="login-register">
+				<h3 class="login-register-title">REGISTER</h3>
 
-		<div class="inputBox">
-			<input type="password" name="confirmPassword" required>
-			<label>CONFIRM &nbsp PASSWORD</label>
-		</div>
+				<div class="inputBox">
+					<input autocomplete="off" autofocus type="text" name="username" required>
+					<label>USERNAME</label>
+				</div>
 
-		<div class="inputBox">
-			<input type="submit" name="submit" value="Create">
-		</div>
+				<div class="inputBox">
+					<input type="password" name="password" required>
+					<label>PASSWORD</label>
+				</div>
 
-		<p>Already have an account ? <a href="/login">Login</a></p>
-	</form>
+				<div class="inputBox">
+					<input type="password" name="confirmPassword" required>
+					<label>CONFIRM &nbsp PASSWORD</label>
+				</div>
+
+				<div class="inputBox">
+					<input type="submit" name="submit" value="Create">
+				</div>
+				
+				<p class="new-login">Already have an account?<a href="/login">&nbspLogin</a></p>
+			</div>		
+		</form>
+	</div>
 
 	<div class="popupBg" id="popupBg"> </div>
 

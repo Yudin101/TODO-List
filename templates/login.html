@@ -13,22 +13,32 @@
 		</div>
 	{% endif %}
 
-	<form class="login-register" action="/login" method="post" name="accForm">
-		<h2>Login</h2>
-		<div class="inputBox">
-			<input autofocus autocomplete="off" type="text" name="username" required>
-			<label>USERNAME</label>
-		</div>
+	<div class="login-register-main">
+		<form class="login-register-form" action="/login" method="post" name="accForm">
+			<div class="login-register-contents">
+				<h1>Welcome Back!</h1>
+				<p style="color: gray;">Boost productivity. Log in to complete tasks.</p>
+			</div>
 
-		<div class="inputBox">
-			<input type="password" name="password" required>
-			<label>PASSWORD</label>
-		</div>
+			<div class="login-register">
+				<h3 class="login-register-title">LOGIN</h3>
 
-		<div class="inputBox">
-			<input type="submit" name="submit" value="Login">
-		</div>
-		
-		<a href="/register">Create a new account</a>
-	</form>
+				<div class="inputBox">
+					<input autofocus autocomplete="off" type="text" name="username" required>
+					<label>USERNAME</label>
+				</div>
+
+				<div class="inputBox">
+					<input type="password" name="password" required>
+					<label>PASSWORD</label>
+				</div>
+
+				<div class="inputBox">
+					<input type="submit" name="submit" value="Login">
+				</div>
+
+				<p class="new-login">Don't have an account?<a href="/register">&nbspRegister</a></p>
+			</div>
+		</form>
+	</div>
 {% endblock %}
