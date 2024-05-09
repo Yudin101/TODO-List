@@ -105,14 +105,15 @@ main{
 }
 
 .login-register-form {
-	background-color: var(--bgClr);
+	background: linear-gradient(to top left, #1c2630, #041221);
 	width: 80%;
 	height: 80vh;
 	display: flex;
 	align-items: center;
 	justify-content: space-around;
 	border-radius: 35px;
-	box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+	box-shadow: 0px 0px 10px var(--clr);
+	border: 1px solid var(--clr);
 }
 
 .login-register-contents {
