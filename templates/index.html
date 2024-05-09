@@ -12,7 +12,6 @@
 			</a>
 		</div>
 		{% if todoLen == 0 %}
-			<!-- <p>Seems like all your tasks are completed!</p> -->
 			<div class="empty-img-div">
 				<img class="empty-img" src="/static/images/empty.png">
 				<h4 class="empty-text">All tasks completed!</h4>
@@ -25,16 +24,36 @@
 							<input type="hidden" name="edit" value="{{todo.todos}}">
 							<button class="list">
 									{% if todo["tim"] == "" and todo["dat"] == "" %}
-										<span class="list-date"><strong>No Deadline</strong></span>
+									    <span class="list-date"><strong>No Deadline</strong></span>
 
 									{% elif todo["tim"] != "" and todo["dat"] == "" %}
-										<span class="list-date"><strong>Deadline:</strong> {{ todo["tim"] }}</span>
+									    {% set time_parts = todo["tim"].split(':') %}
+									    {% set hour = time_parts[0] | int %}
+									    {% set minute = time_parts[1] %}
+									    {% set time_suffix = "AM" if hour < 12 else "PM" %}
+									    {% if hour == 0 %}
+									        {% set hour = 12 %}
+									    {% elif hour > 12 %}
+									        {% set hour = hour - 12 %}
+									    {% endif %}
+									    {% set time_12hr = hour ~ ":" ~ minute ~ " " ~ time_suffix %}
+									    <span class="list-date"><strong>Deadline:</strong> {{ time_12hr }}</span>
 
 									{% elif todo["tim"] == "" and todo["dat"] != "" %}
-										<span class="list-date"><strong>Deadline:</strong> {{ todo["dat"] }}</span>
+									    <span class="list-date"><strong>Deadline:</strong> {{ todo["dat"] }}</span>
 
 									{% else %}
-										<span class="list-date"><strong>Deadline:</strong> {{ todo["tim"] }}, {{ todo["dat"] }}</span>
+									    {% set time_parts = todo["tim"].split(':') %}
+									    {% set hour = time_parts[0] | int %}
+									    {% set minute = time_parts[1] %}
+									    {% set time_suffix = "AM" if hour < 12 else "PM" %}
+									    {% if hour == 0 %}
+									        {% set hour = 12 %}
+									    {% elif hour > 12 %}
+									        {% set hour = hour - 12 %}
+									    {% endif %}
+									    {% set time_12hr = hour ~ ":" ~ minute ~ " " ~ time_suffix %}
+									    <span class="list-date"><strong>Deadline:</strong> {{ time_12hr }}, {{ todo["dat"] }}</span>
 									{% endif %}
 
 									<p class="task-text">{{ todo["todos"] }}</p>

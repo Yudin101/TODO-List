@@ -35,23 +35,6 @@ def login_required(f):
     return decorated_function
 
 
-# Function to convert 24hr time format to 12hr
-def conv24to12(time):
-    hour = int(time[:2])
-
-    if hour == 12:
-        return f"{hour}{time[2:]} PM"
-
-    if hour == 00:
-        return f"12{time[2:]} AM"
-
-    if hour > 12:
-        hour -= 12
-        return f"{hour}{time[2:]} PM"
-
-    if hour < 12:
-        return f"{hour}{time[2:]} AM"
-
 
 # Index Page
 @app.route("/", methods=["GET", "POST"])
@@ -139,12 +122,7 @@ def add():
 
     if request.method == "POST":
         todo = request.form.get("todo")
-
-        # This allows creation of tasks without specifying time
         time = request.form.get("time")
-        if time != "":
-            time = conv24to12(time)
-
         date = request.form.get("date")
 
         # Preventing duplicate tasks
