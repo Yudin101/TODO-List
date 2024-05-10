@@ -677,7 +677,11 @@ nav p{
 @media (max-width: 815px){
 	.login-register-form {
 		width: 95%;
-		height: 60%;
+		height: auto;
+	}
+
+	.login-register p {
+		margin-bottom: 20px;
 	}
 
 	.login-register-contents {
@@ -768,40 +772,33 @@ nav p{
 		z-index: 1;
 	}
 
-	.sidebar h1 {
+	.sidebar .about-link {
+		margin-top: 6px;
+		margin-left: 0;
 		padding: 0 25px;
 		text-decoration: none;
 		font-size: 25px;
-		color: #818181;
 		display: block;
 		transition: 0.3s;
 	}
 
-	.sidebar h1:hover {
-		color: #f1f1f1;
+	.sidebar .about-link:hover {
+		color: var(--clr);
+		background-color: rgba(50, 50, 60, 0.4);
+		text-decoration: none;
 	}
 
 	.sidebar-div-bottom{
 		display: flex;
 		flex-direction: column;
-		margin-left: 25px;
 	}
 
 	.sidebar-div-bottom a{
 		display: inline;
 		margin-bottom: 15px;
+		margin-left: 25px;
 		pointer-events: none;
 	}
-
-    .about-link{
-    	font-size: 20px;
-    	margin-bottom: 8px;
-    	margin-left: 0;
-    }
-
-    .about-link:hover{
-    	text-decoration: none;
-    }
 
 	.logout{
 		margin-top: 10px;
