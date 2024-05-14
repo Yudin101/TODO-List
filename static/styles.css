@@ -153,6 +153,7 @@ a:active{
 }
 
 .inputBox{
+	display: flex;
 	position: relative;
 	width: 300px;
 	margin-bottom: 40px;
@@ -219,6 +220,19 @@ a:active{
 
 .inputBox input[type="submit"]:active{
 	background: #015e8c;
+}
+
+#password, #conpassword {
+	width: 80%;
+}
+
+#show-hide-pass, #show-hide-con-pass {
+	margin-top: 10px;
+	margin-left: 10px;
+	position: relative;
+	color: #999999;
+	cursor: pointer;
+	width: 30px;
 }
 
 .dateBox{

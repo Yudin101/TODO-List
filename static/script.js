@@ -70,3 +70,36 @@ function closeSidebar() {
     var sidebar = document.getElementById('sidebar');
     sidebar.style.width = '0';
 }
+
+// To implement the same function for confirm password in register page
+
+var val;
+function showHide(a) {
+	if (a == 0) {
+		var cText = document.getElementById('show-hide-pass');
+		var password = document.getElementById('password');
+
+		if (val == 1) {
+			password.type = 'password';
+			cText.textContent = 'SHOW';
+			val = 0;
+		} else {
+			cText.textContent = 'HIDE';
+			password.type = 'text';
+			val = 1;
+		}
+	} else {
+		var cText = document.getElementById('show-hide-con-pass');
+		var confirmPassword = document.getElementById('conpassword');
+
+		if (val == 1) {
+			confirmPassword.type = 'password';
+			cText.textContent = 'SHOW';
+			val = 0;
+		} else {
+			cText.textContent = 'HIDE';
+			confirmPassword.type = 'text';
+			val = 1;
+		}
+	}
+}
