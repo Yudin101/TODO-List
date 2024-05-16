@@ -71,8 +71,6 @@ function closeSidebar() {
     sidebar.style.width = '0';
 }
 
-// To implement the same function for confirm password in register page
-
 var val;
 function showHide(a) {
 	if (a == 0) {
