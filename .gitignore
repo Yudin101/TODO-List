@@ -3,3 +3,4 @@ flask_session/
 userData.db
 dummyDataGenerator.py
 test/
+env/

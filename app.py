@@ -1,15 +1,19 @@
 import os
+import secrets
 
 from cs50 import SQL
 from flask import Flask, redirect, render_template, request, session
 from flask_session import Session
 from werkzeug.security import check_password_hash, generate_password_hash
 from functools import wraps
+from datetime import timedelta
 
 app = Flask(__name__)
 
-app.config["SESSION_PERMANENT"] = False
+app.config["SESSION_PERMANENT"] = True
 app.config["SESSION_TYPE"] = "filesystem"
+app.config["PERMANENT_SESSION_LIFETIME"] = timedelta(hours = 24)
+app.config["SECRET_KEY"] = secrets.token_urlsafe(32)
 Session(app)
 
 # Checking if userData.db exists
@@ -85,8 +89,6 @@ def register():
 # Login Page
 @app.route("/login", methods=["GET", "POST"])
 def login():
-
-    session.clear()
 
     if request.method == "POST":
         username = request.form.get("username")
