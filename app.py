@@ -29,7 +29,7 @@ db.execute("CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREME
 db.execute("CREATE TABLE IF NOT EXISTS todoList (user_id INTEGER NOT NULL, todos TEXT NOT NULL, id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, dat TEXT, tim TEXT);")
 
 
-# Function to check whether or not user is logged in
+# Function to ensure user is logged in
 def login_required(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
@@ -38,6 +38,12 @@ def login_required(f):
         return f(*args, **kwargs)
     return decorated_function
 
+
+# Function to redirect user to / if logged in
+def logged_in():
+    if session.get("user_id"):
+        return True
+    return False
 
 
 # Index Page
@@ -83,6 +89,9 @@ def register():
         return redirect("/")
 
     else:
+        if logged_in():
+            return redirect("/")
+
         return render_template("register.html")
 
 
@@ -104,6 +113,9 @@ def login():
         return redirect("/")
 
     else:
+        if logged_in():
+            return redirect("/")
+
         return render_template("login.html")
 
 
