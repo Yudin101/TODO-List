@@ -5,39 +5,40 @@
 {% endblock %}
 
 {% block main %}
-	{% if error == "noPrevMatch" %}
-		<div class="popupBg" id="popupBgSecond" style="visibility: visible;"> </div>
-		<div class="popup" id="already-user" style="visibility: visible; transform: scale(0.8);">
-			<p>Incorrect Current Password!</p>
-			<button id="okButton" onclick="closePopupAlready()">Ok</button>
-		</div>
-	{% elif error == "success" %}
-		<p class="success">Password Changed!</p>
-	{% endif %}
-
 	<div class="contents">
 		<div>
 			<a href="/settings">
 				<button class="rect-button-top">Back</button>
 			</a>
 		</div>
-		<h2>Change password for user : {{account}}</h2>
+
+		{% if error == "noPrevMatch" %}
+			<p class="error-p">Incorrect Current Password!</p>
+		{% elif error == "success" %}
+			<p class="success">Password Changed!</p>
+		{% endif %}
+		<p class="error-msg" id="minimum-special">Password must contain 8 characters, 1 special</p>
+		<p class="error-msg" id="same-char">Passwords must match</p>
+
+		<h2 style="margin-bottom: 25px;">Change password for user : {{account}}</h2>
 
 		<form action="/change" method="post" name="accountForm" onsubmit="validateForm()">
-			<div class="change-contents">
-				<label>Enter current password: </label>
-				<input autocomplete="off" autofocus type="password" name="currentPassword" required>
-			</div>
-
-			<div class="change-contents">
-				<label>Enter new password: </label>
-				<input autofocus type="password" name="password" required>
-			</div>
-
-			<div class="change-contents">
-				<label>Confirm new password: </label>
-				<input autofocus type="password" name="confirmPassword" required>
-			</div>
+			<table>
+				<tbody>
+					<tr>
+						<td>Current Password: </td>
+						<td><input class="change-contents" autocomplete="off" autofocus type="password" name="currentPassword" required></td>
+					</tr>
+					<tr>
+						<td>New Password: </td>
+						<td><input class="change-contents" autofocus type="password" name="password" required></td>
+					</tr>
+					<tr>
+						<td>Confirm New Password: </td>
+						<td><input class="change-contents" autofocus type="password" name="confirmPassword" required></td>
+					</tr>
+				</tbody>
+			</table>
 
 			<div class="choice change-choice">
 				<a href="/settings">
@@ -47,22 +48,5 @@
 			</div>
 		</form>
 
-	</div>
-
-	<div class="popupBg" id="popupBg"> </div>
-
-	<div class="popup" id="special-char">
-		<p>Password must contain at least 1 special character!</p>
-		<button onclick="closePopup()">Ok</button>
-	</div>
-
-	<div class="popup" id="minimum-char">
-		<p>Password must contain at least 8 characters!</p>
-		<button onclick="closePopup()">Ok</button>
-	</div>
-
-	<div class="popup" id="same-char">
-		<p>Both passwords must be same!</p>
-		<button onclick="closePopup()">Ok</button>
 	</div>
 {% endblock %}
