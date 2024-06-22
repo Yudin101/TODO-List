@@ -37,10 +37,14 @@
 									        {% set hour = hour - 12 %}
 									    {% endif %}
 									    {% set time_12hr = hour ~ ":" ~ minute ~ " " ~ time_suffix %}
-									    <span class="list-date"><strong>Deadline:</strong> {{ time_12hr }}</span>
+									    <span class="list-date"><strong>{{ time_12hr }}</strong></span>
 
 									{% elif todo["tim"] == "" and todo["dat"] != "" %}
-									    <span class="list-date"><strong>Deadline:</strong> {{ todo["dat"] }}</span>
+										{% if todo["dat"] == today %}
+											<span class="list-date"><strong>Today</strong></span>
+										{% else %}
+											<span class="list-date"><strong>{{ todo["dat"] }}</strong></span>
+										{% endif %}
 
 									{% else %}
 									    {% set time_parts = todo["tim"].split(':') %}
@@ -53,7 +57,11 @@
 									        {% set hour = hour - 12 %}
 									    {% endif %}
 									    {% set time_12hr = hour ~ ":" ~ minute ~ " " ~ time_suffix %}
-									    <span class="list-date"><strong>Deadline:</strong> {{ time_12hr }}, {{ todo["dat"] }}</span>
+									    {% if todo["dat"] == today %}
+									    	<span class="list-date"><strong>{{ time_12hr }}, Today</strong></span>
+									    {% else %}
+									    	<span class="list-date"><strong>{{ time_12hr }}, {{ todo["dat"] }}</strong></span>
+									    {% endif %}
 									{% endif %}
 
 									<p class="task-text">{{ todo["todos"] }}</p>

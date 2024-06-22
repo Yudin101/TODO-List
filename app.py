@@ -6,7 +6,7 @@ from flask import Flask, redirect, render_template, request, session
 from flask_session import Session
 from werkzeug.security import check_password_hash, generate_password_hash
 from functools import wraps
-from datetime import timedelta
+from datetime import date, timedelta
 
 app = Flask(__name__)
 
@@ -63,7 +63,7 @@ def index():
         todoList = db.execute("SELECT todos, dat, tim FROM todoList WHERE user_id = ?", session["user_id"])
         todoLen = len(todoList)
 
-        return render_template("index.html", todoCount=todoCount, todoList=todoList, todoLen=todoLen)
+        return render_template("index.html", todoCount=todoCount, todoList=todoList, todoLen=todoLen, today=str(date.today()))
 
 
 # Register Page
