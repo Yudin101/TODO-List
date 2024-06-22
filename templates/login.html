@@ -5,14 +5,6 @@
 {% endblock %}
 
 {% block main %}
-	{% if error %}
-		<div class="popupBg" id="popupBgSecond" style="visibility: visible;"> </div>
-		<div class="popup" id="already-user" style="visibility: visible; transform: scale(0.8);">
-			<p>Invalid Username and/or Password!</p>
-			<button id="okButton" onclick="closePopupAlready()">Ok</button>
-		</div>
-	{% endif %}
-
 	<div class="login-register-main">
 		<form class="login-register-form" action="/login" method="post" name="accForm">
 			<div class="login-register-contents">
@@ -21,7 +13,12 @@
 			</div>
 
 			<div class="login-register">
+				<!-- The h3 below is for responsive view -->
 				<h3 class="login-register-title">LOGIN</h3>
+				
+				{% if error %}
+					<p class="error-p">Invalid username/password</p>
+				{% endif %}
 
 				<div class="inputBox">
 					<input autofocus autocomplete="off" type="text" name="username" required>

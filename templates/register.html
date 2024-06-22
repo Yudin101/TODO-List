@@ -12,9 +12,17 @@
 				<p style="color: gray;">Join us! Sign up now for organized productivity.</p>
 			</div>
 
-			<div class="login-register">
+			<div class="login-register register">
+				<!-- The h3 below is for responsive view -->
 				<h3 class="login-register-title">REGISTER</h3>
 
+				{% if error == "already" %}
+					<p class="error-p">Username already exists!</p>
+				{% endif %}
+
+				<p class="error-msg" id="minimum-special">Password must contain 8 characters, 1 special</p>
+				<p class="error-msg" id="same-char">Passwords must match</p>
+					
 				<div class="inputBox">
 					<input autocomplete="off" autofocus type="text" name="username" required>
 					<label>USERNAME</label>
@@ -40,29 +48,4 @@
 			</div>		
 		</form>
 	</div>
-
-	<div class="popupBg" id="popupBg"> </div>
-
-	<div class="popup" id="special-char">
-		<p>Password must contain at least 1 special character!</p>
-		<button onclick="closePopup()">Ok</button>
-	</div>
-
-	<div class="popup" id="minimum-char">
-		<p>Password must contain at least 8 characters!</p>
-		<button onclick="closePopup()">Ok</button>
-	</div>
-
-	<div class="popup" id="same-char">
-		<p>Both passwords must be same!</p>
-		<button onclick="closePopup()">Ok</button>
-	</div>
-
-	{% if error == "already" %}
-		<div class="popupBg" id="popupBgSecond" style="visibility: visible;"> </div>
-		<div class="popup" id="already-user" style="visibility: visible; transform: scale(0.8);">
-			<p>Username already exists!</p>
-			<button id="okButton" onclick="closePopupAlready()">Ok</button>
-		</div>
-	{% endif %}
 {% endblock %}
