@@ -25,7 +25,7 @@ main{
 	align-items: center;
 }
 
-.delete-error{
+.delete-warning{
 	background: var(--bgClr);
 	color: #e81c1c;
 	font-size: 1.25rem;
@@ -240,14 +240,14 @@ nav{
 .nav-button:hover{
 	background-color: var(--clr);
 	color: white;
-	box-shadow: 0 0 30px 1px rgba(10, 179, 255, 1);
+	box-shadow: 0 0 20px 1px rgba(10, 179, 255, 0.5);
 }
 
 .nav-button:active{
 	border-color: #0077b3;
 	background-color: #0077b3;
 	color: lightgray;
-	box-shadow: 0 0 30px 1px #0077b3;
+	box-shadow: 0 0 20px 1px #0077b3;
 }
 
 .logout{
@@ -258,14 +258,14 @@ nav{
 
 .logout:hover{
 	background-color: red;
-	box-shadow: 0 0 30px 1px red;
+	box-shadow: 0 0 20px 1px red;
 }
 
 .logout:active{
 	border-color: darkred;
 	background-color: darkred;
 	color: lightgray;
-	box-shadow: 0 0 30px 1px darkred;
+	box-shadow: 0 0 20px 1px darkred;
 }
 
 nav p{
@@ -339,7 +339,7 @@ nav p{
 .list{
 	display: flex;
 	flex-direction: column;
-	background-color: #35404f;
+	background-color: rgba(53, 64, 79, 0.6);
 	padding: 15px 25px;
 	width: 100%;
 	border-radius: 5px;
@@ -351,12 +351,12 @@ nav p{
 }
 
 .list:hover{
-	background-color: #47566b;
+	background-color: rgba(53, 64, 79, 0.9);
 	cursor: pointer;
 }
 
 .list:active{
-	background-color: #363f4d;
+	background-color: rgba(33, 44, 59, 1.0);
 }
 
 .list-date{
@@ -393,35 +393,17 @@ nav p{
 
 .delete:hover{
 	background-color: red;
-	box-shadow: 0 0 30px 1px red;
+	box-shadow: 0 0 20px 1px red;
 }
 
 .delete:active{
 	background-color: darkred;
 	border-color: darkred;
-	box-shadow: 0 0 30px 1px darkred;
+	box-shadow: 0 0 20px 1px darkred;
 }
 
 .delete i{
 	color: red;
-}
-
-.edit{
-	border-color: green;
-}
-
-.edit:hover{
-	background-color: green;
-	box-shadow: 0 0 30px 1px green;
-}
-
-.edit:active{
-	border-color: darkgreen;
-	background-color: darkgreen;
-}
-
-.edit i{
-	color: green;
 }
 
 .add-form{
@@ -475,28 +457,28 @@ nav p{
 	background-color: red;
 	border: 2px solid red;
 	color: white;
-	box-shadow: 0 0 30px 1px red;
+	box-shadow: 0 0 20px 1px red;
 }
 
 .cancel:active{
 	border-color: darkred;
 	background-color: darkred;
 	color: lightgray;
-	box-shadow: 0 0 30px 1px darkred;
+	box-shadow: 0 0 20px 1px darkred;
 }
 
 .add:hover{
 	background-color: green;
 	border: 2px solid green;
 	color: white;
-	box-shadow: 0 0 30px 1px green;
+	box-shadow: 0 0 20px 1px green;
 }
 
 .add:active{
 	border-color: darkgreen;
 	background-color: darkgreen;
 	color: lightgray;
-	box-shadow: 0 0 30px 1px darkgreen;
+	box-shadow: 0 0 20px 1px darkgreen;
 }
 
 .delete-account{
@@ -515,14 +497,14 @@ nav p{
 .delete-account:hover{
 	background-color: red;
 	color: white;
-	box-shadow: 0 0 30px 1px red;
+	box-shadow: 0 0 20px 1px red;
 }
 
 .delete-account:active {
 	background-color: darkred;
 	color: lightgray;
 	border-color: darkred;
-	box-shadow: 0 0 30px 1px darkred;
+	box-shadow: 0 0 20px 1px darkred;
 }
 
 .change-pass{
@@ -541,14 +523,14 @@ nav p{
 .change-pass:hover{
 	background-color: green;
 	color: white;
-	box-shadow: 0 0 30px 1px green;
+	box-shadow: 0 0 20px 1px green;
 }
 
 .change-pass:active {
 	background-color: darkgreen;
 	color: lightgray;
 	border-color: darkgreen;
-	box-shadow: 0 0 30px 1px darkgreen;
+	box-shadow: 0 0 20px 1px darkgreen;
 }
 
 td {
